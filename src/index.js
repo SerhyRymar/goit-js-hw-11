@@ -11,7 +11,7 @@ const input = document.querySelector('.search-form__input');
 const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
 
-let page = 0;
+let page = 1;
 let remainingHits = 0;
 
 searchForm.addEventListener('submit', search);

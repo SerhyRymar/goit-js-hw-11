@@ -33,9 +33,6 @@ body {
   margin: 2px;
 }
 
-.more-container__button {
-visibility: hidden;
-}
 
 .photo-img {
   width: 350px;
@@ -69,7 +66,8 @@ p {
   padding: 8px;
 }
 
-.more-container__button {
+.load-more {
+  visibility: hidden;
   background-color: #1e90ff;
   width: 100px;
   height: 40px;
