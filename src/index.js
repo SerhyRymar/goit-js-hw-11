@@ -93,6 +93,7 @@ function creationMarkup(hits, totalHits) {
     captionDelay: '250',
   });
 
+// 8. Прорахунок кількості "сторінок" та помилка якщо не знайденно картинку
   remainingHits = totalHits - pageNumber * 40;
 
   if (remainingHits <= 0) {
