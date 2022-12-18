@@ -1,5 +1,5 @@
 // 1. Імпортуємо бібліотеки 
-import { fetchPhotos } from './js/fetchPictures';
+import { fetchPictures } from './js/fetchPictures';
 import { Notify } from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
@@ -15,28 +15,31 @@ const buttonLoadMore = document.querySelector('.load-more');
 let pageNumber = 1;
 let remainingHits = 0;
 
-searchForm.addEventListener('submit', search);
-buttonLoadMore.addEventListener('click', loadMore);
+// 4. Вішаємо слухачів
+searchForm.addEventListener('submit', onSubmit);
+buttonLoadMore.addEventListener('click', onClick);
 buttonLoadMore.style.display = 'none';
 
-function loadMore() {
+// 5.Функції
+function onClick() {
   pageNumber += 1;
-  searchPhotos();
+  searchPictures();
 }
 
-function search(event) {
+function onSubmit(event) {
   event.preventDefault();
   pageNumber = 1;
   gallery.innerHTML = '';
 
-  searchPhotos();
+  searchPictures();
 }
 
-function searchPhotos() {
-  fetchPhotos(input.value, pageNumber)
+// 6. Функція пошуку картинок 
+function searchPictures() {
+  fetchPictures(input.value, pageNumber)
     .then(photo => {
       console.log(photo);
-      renderPhotos(photo.hits, photo.totalHits);
+      creationMarkup(photo.hits, photo.totalHits);
       if (remainingHits > 0 && remainingHits < photo.totalHits) {
         buttonLoadMore.style.display = 'flex';
       } else {
@@ -46,7 +49,8 @@ function searchPhotos() {
     .catch(error => console.log(error));
 }
 
-function renderPhotos(hits, totalHits) {
+//7. Функція створення розмітки
+function creationMarkup(hits, totalHits) {
   console.log(hits);
   const markup = hits
     .map(
