@@ -1,10 +1,12 @@
+// 1. Імпортуємо бібліотеки 
 import { fetchPhotos } from './js/fetchPictures';
-
 import { Notify } from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-const form = document.querySelector('#search-form');
+// 2. Знаходими усі посилання 
+
+const searchForm = document.querySelector('#search-form');
 const input = document.querySelector('.search-form__input');
 const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
@@ -12,7 +14,7 @@ const loadMoreBtn = document.querySelector('.load-more');
 let page = 0;
 let remainingHits = 0;
 
-form.addEventListener('submit', search);
+searchForm.addEventListener('submit', search);
 loadMoreBtn.addEventListener('click', loadMore);
 loadMoreBtn.classList.add('is-not-visible');
 
