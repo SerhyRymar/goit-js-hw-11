@@ -9,6 +9,7 @@
   <body>
     <form class="search-form" id="search-form">
   <input
+    class="search-form__input"
     type="text"
     name="searchQuery"
     autocomplete="off"
@@ -17,9 +18,7 @@
   <button type="submit">Search</button>
       </form>
       <div class="gallery"></div>
-      <div class="more-container">
-        <button type="button" class="more-container__button">Add more</button>
-      </div>
-   <script type="module" src="./js/index.js"></script>
+        <button type="button" class="load-more" visually-hidden >Load more</button>
+   <script type="module" src="./index.js"></script>
   </body>
 </html>
